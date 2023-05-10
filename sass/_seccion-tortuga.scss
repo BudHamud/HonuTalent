@@ -1,0 +1,61 @@
+#turtle {
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    rgba(3, 90, 84, 1) 10%,
+    rgba(255, 255, 255, 1) 90%
+  );
+
+  .text-turtle {
+    font-size: 1.8rem;
+    margin-right: 35% !important;
+    font-weight: 100;
+
+    z-index: 2;
+  }
+
+  .turtle {
+    filter: invert(27%) sepia(18%) saturate(5477%) hue-rotate(159deg)
+      brightness(40%) contrast(101%);
+    top: 28%;
+
+    right: 16%;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 767.98px) {
+  #turtle {
+    overflow: hidden;
+    justify-content: center !important;
+    align-items: flex-start !important;
+
+    .turtle {
+      z-index: 0;
+      width: 250px;
+      top: 60%;
+      right: -10%;
+    }
+
+    .text-turtle {
+      margin-right: 0% !important;
+    }
+
+    .linea {
+      bottom: -5% !important;
+    }
+
+    p {
+      padding: 3rem;
+      font-size: 2.4rem !important;
+      margin: 0% !important;
+      width: 100%;
+      z-index: 1;
+      margin-right: 0% !important;
+
+      br {
+        display: none;
+      }
+    }
+  }
+}
