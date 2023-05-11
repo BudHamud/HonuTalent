@@ -113,6 +113,7 @@ header .links-nav a:hover {
 }
 @media (max-width: 512px) {
   #home {
+    background: linear-gradient(180deg, rgb(0, 35, 33) 10%, rgb(3, 90, 84) 90%);
     background-position-x: center;
   }
   #home article {
@@ -133,6 +134,9 @@ header .links-nav a:hover {
     font-size: small;
     width: 100px;
     padding: 10px;
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+    box-shadow: inset 0 0 0 0 whitesmoke;
   }
 }
 * {
