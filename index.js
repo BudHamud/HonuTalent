@@ -7,17 +7,20 @@ let change = true;
 
 const tiktokContent = [
   {
-    video: `./img/video1_.mp4`,
+    video: './img/video1_.mp4',
+    gif: './img/video1.gif',
     likes: 154,
     views: 313,
   },
   {
-    video: `./img/video2_.mp4`,
+    video: './img/video2_.mp4',
+    gif: `./img/video2.gif`,
     likes: 178,
     views: 700,
   },
   {
-    video: `./img/video3_.mp4`,
+    video: './img/video3_.mp4',
+    gif: `./img/video3.gif`,
     likes: 166,
     views: 600,
   },
@@ -51,9 +54,15 @@ const carousel = (e, click = false) => {
   controlers.className = "btn-tiktok";
   counter.className = "counter";
   tiktok.innerHTML = "";
-  card.innerHTML = `
-    <video loop autoplay muted src=${tiktokContent[e].video}>
-    `;
+  if (window.screen.availWidth > 766) {
+    card.innerHTML = tiktokContent[e].video ? `
+  <video loop autoplay muted class="tiktok-gif" src=${tiktokContent[e].video}>
+  ` : '<img class="turtle" src="./img/turtle.png">'
+  } else {
+    card.innerHTML = tiktokContent[e].gif ? `
+  <img class="tiktok-gif" src=${tiktokContent[e].gif}>
+  ` : '<img class="turtle" src="./img/turtle.png">'
+  }
 
   const intervalId = setInterval(() => {
     countDown++;
@@ -91,14 +100,22 @@ const carousel = (e, click = false) => {
     count++;
   }
 
-  if (change && !click) {
+  if (change && !click && window.screen.availWidth > 766) {
     change = false;
     setTimeout(() => {
       change = true;
       carousel(count);
     }, 10000);
   }
+  if (change && !click && window.screen.availWidth < 766) {
+    change = false;
+    setTimeout(() => {
+      change = true;
+      carousel(count);
+    }, 5000);
+  }
 };
+
 
 const message = `<strong> WE'RE HONU</strong> WE'RE HONU`;
 const messageContainer = document.querySelector(".message-container");
